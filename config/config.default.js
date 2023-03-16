@@ -78,7 +78,7 @@ module.exports = () => {
     // 配置参考 https://www.npmjs.com/package/kafka-node
     config.kafka = {
         client: { // kafkaClient
-            kafkaHost: 'localhost:9092',
+            kafkaHost: '172.16.100.143:9092',
         },
         producer: {
             web: {
@@ -234,7 +234,7 @@ module.exports = () => {
     config.redis = {
         client: {
             port: 6379, // Redis port
-            host: '127.0.0.1', // Redis host
+            host: '172.16.100.143', // Redis host
             password: '',
             db: 0,
         },
@@ -244,7 +244,7 @@ module.exports = () => {
     const dbclients = {
         db3: {
             // 单机部署
-            url: 'mongodb://127.0.0.1:27017/performance',
+            url: 'mongodb://172.16.100.143:27018/performance',
             // 副本集 读写分离
             // url: 'mongodb://127.0.0.1:28100,127.0.0.1:28101,127.0.0.1:28102/performance?replicaSet=rs1',
             // 集群分片
@@ -257,7 +257,7 @@ module.exports = () => {
     };
     if (config.report_data_type === 'mongodb') {
         dbclients.db1 = {
-            url: 'mongodb://127.0.0.1:27019/performance',
+            url: 'mongodb://172.16.100.143:27018/performance',
             options: {
                 poolSize: 20,
             },
@@ -275,7 +275,7 @@ module.exports = () => {
     };
 
     config.security = {
-        domainWhiteList: [ 'http://127.0.0.1:18090' ],
+        domainWhiteList: [ 'http://172.16.100.143:18090' ],
         csrf: {
             enable: false,
             ignore: '/api/v1/report/**',
