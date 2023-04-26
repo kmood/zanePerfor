@@ -6,13 +6,13 @@ module.exports = () => {
     return async function(ctx, next) {
         const referer = ctx.request.header.referer || '';
         const url = new URL(referer);
-        if (ctx.app.config.origin && ctx.app.config.origin.indexOf(url.origin) === -1) {
-            ctx.body = {
-                code: 1004,
-                desc: '域名来源有误,请检查config的origin配置',
-            };
-            return;
-        }
+        // if (ctx.app.config.origin && ctx.app.config.origin.indexOf(url.origin) === -1) {
+        //     ctx.body = {
+        //         code: 1004,
+        //         desc: '域名来源有误,请检查config的origin配置',
+        //     };
+        //     return;
+        // }
         const usertoken = ctx.cookies.get('usertoken', {
             encrypt: true,
             signed: true,
